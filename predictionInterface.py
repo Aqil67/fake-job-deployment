@@ -38,7 +38,7 @@ def preprocessInput(text):
 
 
 # Load the saved model from the HDF5 file
-interfaceModel = keras.models.load_model('C:/Users/andri/Documents/FYP Investigation/FYP/tuned_LSTM.h5')
+interfaceModel = keras.models.load_model('Model/tuned_LSTM.h5')
 
 
 def url_page():
