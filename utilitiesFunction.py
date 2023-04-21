@@ -5,7 +5,10 @@ from urllib.parse import urlparse
 from nltk.tokenize import RegexpTokenizer
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
-
+nltk.download('punkt')
+nltk.download('stopwords')
+nltk.download('wordnet')
+nltk.download('omw-1.4')
 
 def basic_cleaning(text):
     # Convert text to lowercase
