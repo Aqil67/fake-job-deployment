@@ -202,13 +202,18 @@ def tips():
             st.write(
                 'Once you have applied for a job, verify the job offer before accepting it. A legitimate employer will provide you with a formal job offer letter that includes details about the job, salary, benefits, and start date.')
 
+def feedback():
+    st.title('Please Give us Your Feedbacks :)')
+    st.markdown('---')
+    st.write('<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdyGrKVhZQgZffkTWGluNgI4EHaeuPno0f-ma63DJ_bt6RejQ/viewform?embedded=true" width="640" height="1105" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>',unsafe_allow_html=True)
 
 def app():
     st.set_page_config(page_title='Fake Job Prediction')
     pages = {
         'Url Prediction': url_page,
         'Form Prediction': form_page,
-        'Tips to Avoid Job Fraud': tips
+        'Tips to Avoid Job Fraud': tips,
+        'Give Your Feedbacks': feedback
     }
     st.sidebar.title('Menu')
     page = st.sidebar.radio('Go to', tuple(pages.keys()))
