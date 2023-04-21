@@ -1,10 +1,11 @@
 import re
 import tldextract
+import nltk
 from urllib.parse import urlparse
 from nltk.tokenize import RegexpTokenizer
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
-
+nltk.download('stopwords')
 
 def basic_cleaning(text):
     # Convert text to lowercase
