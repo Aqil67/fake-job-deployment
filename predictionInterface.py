@@ -144,13 +144,73 @@ def form_page():
             st.write(f"Probability of job post being fraud: {prediction1:.2%}")
 
 
+def tips():
+    st.title('Tips to Avoid Job Fraud')
+    st.markdown('---')
+
+    with st.container():
+        img_col, txt_col = st.columns([1, 2])
+        with img_col:
+            st.image('Images/company-research.jpg')
+        with txt_col:
+            st.subheader('Research the Company')
+            st.write(
+                'Before applying for a job, do some research on the company to ensure that it is a legitimate organization. Check their website, social media profiles, and read reviews from former employees on sites like Glassdoor. Look out for red flags such as poor reviews, lack of contact information, or inconsistent branding.')
+
+    with st.container():
+        img_col, txt_col = st.columns([1, 2])
+        with img_col:
+            st.image('Images/job-offer.png')
+        with txt_col:
+            st.subheader('Beware of Unsolicited Job Offers')
+            st.write(
+                'Be wary of unsolicited job offers that are sent to you via email or social media. Scammers often use these methods to lure unsuspecting job seekers into fake job opportunities.')
+
+    with st.container():
+        img_col, txt_col = st.columns([1, 2])
+        with img_col:
+            st.image('Images/fakeJobPost.jpg')
+        with txt_col:
+            st.subheader('Look Out for Fake Job Postings')
+            st.write(
+                'Job fraudsters may create fake job postings on legitimate job boards to attract applicants. Look for red flags such as poor grammar and spelling, lack of details about the job, or unrealistic salary expectations or validate with this web app.')
+
+    with st.container():
+        img_col, txt_col = st.columns([1, 2])
+        with img_col:
+            st.image('Images/neverPayForaJob.png')
+        with txt_col:
+            st.subheader('Never Pay for a Job')
+            st.write(
+                'Legitimate employers will never ask you to pay for a job or to pay for background checks or other fees. If a job requires payment, it is likely a scam.')
+
+    with st.container():
+        img_col, txt_col = st.columns([1, 2])
+        with img_col:
+            st.image('Images/checkAddress.jpg')
+        with txt_col:
+            st.subheader('Check for a Physical Address')
+            st.write(
+                'A legitimate company will have a physical address that you can verify. If the company does not provide an address, it may be a fake organization.')
+
+    with st.container():
+        img_col, txt_col = st.columns([1, 2])
+        with img_col:
+            st.image('Images/verifyJob.png')
+        with txt_col:
+            st.subheader('Verify the Job Offer')
+            st.write(
+                'Once you have applied for a job, verify the job offer before accepting it. A legitimate employer will provide you with a formal job offer letter that includes details about the job, salary, benefits, and start date.')
+
+
 def app():
     st.set_page_config(page_title='Fake Job Prediction')
     pages = {
         'Url Prediction': url_page,
-        'Form Prediction': form_page
+        'Form Prediction': form_page,
+        'Tips to Avoid Job Fraud': tips
     }
-    st.sidebar.title('Input Option')
+    st.sidebar.title('Menu')
     page = st.sidebar.radio('Go to', tuple(pages.keys()))
     pages[page]()
 
