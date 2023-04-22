@@ -21,7 +21,7 @@ def clear_text():
 
 
 def preprocessInput(text):
-    """Prepocess the input for LSTM"""
+    """Preprocess the input for LSTM"""
     # Clean the text data
     textInput = basic_cleaning(text)
     tokens = tokenize_text(textInput)
@@ -48,7 +48,7 @@ def url_page():
     st.title('Fake Job Posting Prediction with URL')
 
     # Define the URL to scrape
-    url = st.text_input('Enter the JobStreet link to predict authenticity:', key='url_input')
+    url = st.text_input('Enter a job post link from JobStreet to predict authenticity:', key='url_input')
 
     col1, col2 = st.columns([5, 1])
     with col1:
@@ -72,7 +72,7 @@ def url_page():
                     st.success('The job posting is authentic.')
                 st.write(f"Probability of job post being fraud: {prediction:.2%}")
             else:
-                st.error('Error: The given url should be a job street url.')
+                st.error('Error: The given URL should be a job post from JobStreet.')
 
     with col2:
         clear = st.button('Clear Text', on_click=clear_text)
