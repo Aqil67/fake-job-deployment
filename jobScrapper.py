@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup
 
 
 class JobScraper:
+    """Scrapes job post information from JobStreet URL"""
     def __init__(self, url):
         self.url = url
         self.res = requests.get(url)
@@ -10,6 +11,7 @@ class JobScraper:
         self.data = {}
 
     def scrape(self):
+        """Extract title of the webpage and the job and company description from the webpage's HTML content."""
         # Get the title
         title = self.soup.find('title')
         self.data['title'] = title.text

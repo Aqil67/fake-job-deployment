@@ -11,6 +11,8 @@ nltk.download('wordnet')
 nltk.download('omw-1.4')
 
 def basic_cleaning(text):
+    """Perform cleaning of textual data by removing links, punctuation, special characters, words containing numbers
+    and converting text to lower case """
     # Convert text to lowercase
     text = text.lower()
 
@@ -35,6 +37,7 @@ tokens = RegexpTokenizer(r'\w+')
 
 # Tokenization function to return the text after tokenization
 def tokenize_text(text):
+    """Perform tokenization to the passed text and return the text as a list of tokens."""
     return tokens.tokenize(text)
 
 
@@ -44,6 +47,7 @@ stop_wordsEn = set(stopwords.words('english'))
 
 # Function to remove the stopwords in the tokens
 def remove_stopwords(tokens):
+    """Remove stopwords from the passed list of tokens and return the output."""
     return [word for word in tokens if word not in stop_wordsEn]
 
 
@@ -53,9 +57,11 @@ wNetLemmatizer = WordNetLemmatizer()
 
 # Function to return the text after lemmatization
 def lemmatize_token(tokens):
+    """Return the token to its base root and return the output."""
     return [wNetLemmatizer.lemmatize(token) for token in tokens]
 
 
+# list of acceptable tlds of the URL
 tlds = ['com', 'cn', 'de', 'us', 'uk', 'org', 'ru', 'jp', 'br', 'it', 'au', 'ca', 'pl', 'fr', 'ir', 'in', 'es', 'kr',
         'nl', 'ch', 'se', 'my', 'sg', 'id']
 

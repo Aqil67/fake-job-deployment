@@ -7,6 +7,7 @@ from keras.utils import pad_sequences
 
 
 def clear_text():
+    """Reset the session state for the CLear Text button"""
     st.session_state['url_input'] = ''
     st.session_state['title'] = ''
     st.session_state['company'] = ''
@@ -20,6 +21,7 @@ def clear_text():
 
 
 def preprocessInput(text):
+    """Prepocess the input for LSTM"""
     # Clean the text data
     textInput = basic_cleaning(text)
     tokens = tokenize_text(textInput)
@@ -42,6 +44,7 @@ interfaceModel = keras.models.load_model('Model/tuned_LSTM.h5')
 
 
 def url_page():
+    """Set up the URL page"""
     st.title('Fake Job Posting Prediction with URL')
 
     # Define the URL to scrape
@@ -76,6 +79,7 @@ def url_page():
 
 
 def form_page():
+    """Set up the form page"""
     employment = ['', 'Full-time', 'Contract', 'Part-time', 'Temporary', 'Other']
     education = ['', 'High School or Equivalent', 'Certification', "Bachelor's Degree", 'Professional',
                  'Associate Degree', 'Some College Coursework Completed', 'Some High School Coursework', 'Doctorate']
@@ -145,6 +149,7 @@ def form_page():
 
 
 def tips():
+    """Set up the tips page"""
     st.title('Tips to Avoid Job Fraud')
     st.markdown('---')
 
@@ -155,7 +160,10 @@ def tips():
         with txt_col:
             st.subheader('Research the Company')
             st.write(
-                'Before applying for a job, do some research on the company to ensure that it is a legitimate organization. Check their website, social media profiles, and read reviews from former employees on sites like Glassdoor. Look out for red flags such as poor reviews, lack of contact information, or inconsistent branding.')
+                'Before applying for a job, do some research on the company to ensure that it is a legitimate '
+                'organization. Check their website, social media profiles, and read reviews from former employees on '
+                'sites like Glassdoor. Look out for red flags such as poor reviews, lack of contact information, '
+                'or inconsistent branding.')
 
     with st.container():
         img_col, txt_col = st.columns([1, 2])
@@ -164,7 +172,8 @@ def tips():
         with txt_col:
             st.subheader('Beware of Unsolicited Job Offers')
             st.write(
-                'Be wary of unsolicited job offers that are sent to you via email or social media. Scammers often use these methods to lure unsuspecting job seekers into fake job opportunities.')
+                'Be wary of unsolicited job offers that are sent to you via email or social media. Scammers often use '
+                'these methods to lure unsuspecting job seekers into fake job opportunities.')
 
     with st.container():
         img_col, txt_col = st.columns([1, 2])
@@ -173,7 +182,9 @@ def tips():
         with txt_col:
             st.subheader('Look Out for Fake Job Postings')
             st.write(
-                'Job fraudsters may create fake job postings on legitimate job boards to attract applicants. Look for red flags such as poor grammar and spelling, lack of details about the job, or unrealistic salary expectations or validate with this web app.')
+                'Job fraudsters may create fake job postings on legitimate job boards to attract applicants. Look for '
+                'red flags such as poor grammar and spelling, lack of details about the job, or unrealistic salary '
+                'expectations or validate with this web app.')
 
     with st.container():
         img_col, txt_col = st.columns([1, 2])
@@ -182,7 +193,8 @@ def tips():
         with txt_col:
             st.subheader('Never Pay for a Job')
             st.write(
-                'Legitimate employers will never ask you to pay for a job or to pay for background checks or other fees. If a job requires payment, it is likely a scam.')
+                'Legitimate employers will never ask you to pay for a job or to pay for background checks or other '
+                'fees. If a job requires payment, it is likely a scam.')
 
     with st.container():
         img_col, txt_col = st.columns([1, 2])
@@ -191,7 +203,8 @@ def tips():
         with txt_col:
             st.subheader('Check for a Physical Address')
             st.write(
-                'A legitimate company will have a physical address that you can verify. If the company does not provide an address, it may be a fake organization.')
+                'A legitimate company will have a physical address that you can verify. If the company does not '
+                'provide an address, it may be a fake organization.')
 
     with st.container():
         img_col, txt_col = st.columns([1, 2])
@@ -200,14 +213,20 @@ def tips():
         with txt_col:
             st.subheader('Verify the Job Offer')
             st.write(
-                'Once you have applied for a job, verify the job offer before accepting it. A legitimate employer will provide you with a formal job offer letter that includes details about the job, salary, benefits, and start date.')
+                'Once you have applied for a job, verify the job offer before accepting it. A legitimate employer '
+                'will provide you with a formal job offer letter that includes details about the job, salary, '
+                'benefits, and start date.')
 
 def feedback():
+    """Set up for the Feedback page"""
     st.title('Please Give us Your Feedbacks :)')
     st.markdown('---')
-    st.write('<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdyGrKVhZQgZffkTWGluNgI4EHaeuPno0f-ma63DJ_bt6RejQ/viewform?embedded=true" width="640" height="1105" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>',unsafe_allow_html=True)
+    st.write('<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdyGrKVhZQgZffkTWGluNgI4EHaeuPno0f-ma63DJ_bt6RejQ'
+             '/viewform?embedded=true" width="640" height="1105" frameborder="0" marginheight="0" '
+             'marginwidth="0">Loading…</iframe>',unsafe_allow_html=True)
 
 def app():
+    """Setting up the Streamlit app with all the pages"""
     st.set_page_config(page_title='Fake Job Prediction')
     pages = {
         'Url Prediction': url_page,
